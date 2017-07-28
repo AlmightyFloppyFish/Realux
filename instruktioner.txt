@@ -1,0 +1,4 @@
+sudo chmod +x installera.sh
+./installera.sh
+
+Öppna "lxappearance" och ändra tema till ???? och mustema till ????
