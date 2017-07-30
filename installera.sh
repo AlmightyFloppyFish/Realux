@@ -98,7 +98,7 @@ sudo cp MassaSaker/launch.sh $HOME/.config/realbar/launch.sh
 
 # Konsole
 echo "- Konfiguerar Konsole (Bash)"
-sudo cp MassaSaker/RealStandard.profile ~/.local/share/konsole/RealStandard.profile
+sudo cp MassaSaker/RealStandard.profile $HOME/.local/share/konsole/RealStandard.profile
 yes | sudo cp -rf MassaSaker/.bashrc $HOME/.bashrc
 yes | sudo cp -rf MassaSaker/konsolerc $HOME/.config/konsolerc
 
