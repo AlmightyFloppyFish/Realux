@@ -7,4 +7,4 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1
-polybar -c ~/Documents/Realux/MassaSaker/config realbar &
+polybar -c ~/.config/realbar/config realbar &
