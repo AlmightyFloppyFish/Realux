@@ -33,9 +33,9 @@ sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0
 echo "Klar med dependencies. Installerar nu i3 "
 git clone https://www.github.com/Airblader/i3 $HOME/i3-gaps-source
 mv ci3auto.sh $HOME/i3-gaps-source
-sh $HOME/i3-gaps-source/ci3auto.sh
+/bin/bash $HOME/i3-gaps-source/ci3auto.sh
 
-
+sudo cp i3/config $HOME/.i3/config
 
 # Creating required folders
 
