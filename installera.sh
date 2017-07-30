@@ -35,6 +35,8 @@ git clone https://www.github.com/Airblader/i3 $HOME/i3-gaps-source
 mv ci3auto.sh $HOME/i3-gaps-source
 sh $HOME/i3-gaps-source/ci3auto.sh
 
+
+
 # Creating required folders
 
 echo "- Skapar mappar"
@@ -102,7 +104,7 @@ sudo cp MassaSaker/RealStandard.profile $HOME/.local/share/konsole/RealStandard.
 yes | sudo cp -rf MassaSaker/.bashrc $HOME/.bashrc
 yes | sudo cp -rf MassaSaker/konsolerc $HOME/.config/konsolerc
 
-sudo touch $HOME/.xsession
-sudo echo "exec i3" >> $HOME/.xsession
+touch $HOME/.xsession
+sudo echo "exec i3" > $HOME/.xsession
 
 
