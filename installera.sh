@@ -9,9 +9,10 @@ echo "Detta program är menat att användas på en hellt tomm Ubuntu Minimal ell
 # Dependencies
 echo "- Installerar lite program som behövs"
 echo "Uppdaterar repos"
-sudo apt -y update
+sudo apt -y update >> /dev/null
 echo "x11/Xorg"
-sudo apt -y  install xinit
+sudo apt -y  install xinit >> /dev/null
+echo "Klar!"
 echo "Compton"
 sudo apt -y install compton >> /dev/null
 echo "Klar!"
@@ -28,7 +29,7 @@ echo "Klar!"
 
 #i3
 echo "i3 stock dependencies, Detta kan ta några minuter"
-sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake
+sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake
 echo "Klar med dependencies. Installerar nu i3 "
 git clone https://www.github.com/Airblader/i3 $HOME/i3-gaps-source
 mv ci3auto.sh $HOME/i3-gaps-source
@@ -36,6 +37,15 @@ $HOME/i3-gaps-source/ci3auto.sh
 
 # Creating required folders
 echo "- Skapar mappar"
+
+if [ -e $HOME/.config ]
+then
+        echo "~/.config finns redan! Detta är bra"
+else
+        echo "Skapar .config map"
+        sudo mkdir $HOME/.config 
+fi
+
 if [ -e $HOME/.fonts ]
 then
 	echo "~/.fonts finns redan! Detta är bra"
