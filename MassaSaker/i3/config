@@ -35,7 +35,7 @@ set $right semicolon
 floating_modifier Mod1
 
 # start a terminal
-bindsym Mod1+Return exec gnome-terminal
+bindsym Mod1+Return exec konsole
 
 # kill focused window
 bindsym Mod1+Shift+q kill
@@ -169,6 +169,7 @@ gaps outer 0
 # Autorun
 # Disable middle mouse-paste
 exec --no-startup-id xmodmap -e "pointer = 1 25 3 4 5 6 7 8 9"
+exec --no-startup-id synclient VertEdgeScroll=0
 
 # Autostart
 exec --no-startup-id compton

@@ -21,7 +21,7 @@ font-0 = "lato:pixelsize=10;2"
 font-1 = "Real:antialias=false:pixelsize=21;2"
 font-2 = "FuraMonoForPowerline\ Nerd\ Font:pixelsize=10;2"
 
-modules-left = placeholder text i3
+modules-left =menu i3
 ;modules-center = 
 modules-right = wlan memory cpu volume battery xbacklight date
 
@@ -29,8 +29,8 @@ tray-position = right
 tray-padding = 3
 
 wm-restack = i3
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
 
 bottom = true
 
@@ -181,14 +181,36 @@ format = <label>
 label = %{F#000000} %percentage%%%{F-}
 
 ;#################################
-[module/placeholder]
-type = custom/text
-content = %{T2}%{T-}
+;[module/placeholder]
+;type = custom/text
+;content = %{T2}%{T-}
 
 ;#################################
-[module/text]
-type = custom/text
-content = %{T2} real%{T-}
+[module/menu]
+type = custom/menu
+
+format-spacing = 3
+
+label-open = %{T2} real%{T-}
+label-close = %{T2} real%{T-}
+label-separator =  | 
+;label-separator-foreground = F#333333
+
+menu-0-1 = 
+menu-0-1-exec = systemctl reboot -i
+menu-0-0 = 
+menu-0-0-exec = systemctl poweroff -i
+
+menu-0-2 = 
+menu-0-2-exec = i3lock -c 011900
+
+menu-0-3 = %{F#BED000}'%{F-}
+menu-0-3-exec = echo "x" >> /dev/null
+
+;#################################
+;[module/text]
+;type = custom/text
+;content = %{T2} real%{T-}
 
 ;#################################
 [settings]
