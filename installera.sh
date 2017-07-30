@@ -29,14 +29,24 @@ echo "Klar!"
 
 #i3
 echo "i3 stock dependencies, Detta kan ta några minuter"
-sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake
+sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake >> /dev/null
 echo "Klar med dependencies. Installerar nu i3 "
 git clone https://www.github.com/Airblader/i3 $HOME/i3-gaps-source
 mv ci3auto.sh $HOME/i3-gaps-source
-$HOME/i3-gaps-source/ci3auto.sh
+sh $HOME/i3-gaps-source/ci3auto.sh
 
 # Creating required folders
+
 echo "- Skapar mappar"
+
+if [ -e $HOME/.local ]
+then
+        echo "~/.local finns redan! Detta är bra"
+else
+        echo "Skapar .local map"
+        sudo mkdir $HOME/.local
+	sudo mkdir $HOME/.local/share
+fi
 
 if [ -e $HOME/.config ]
 then
@@ -90,3 +100,8 @@ echo "- Konfiguerar Konsole (Bash)"
 sudo cp MassaSaker/RealStandard.profile ~/.local/share/konsole/RealStandard.profile
 yes | sudo cp -rf MassaSaker/.bashrc $HOME/.bashrc
 yes | sudo cp -rf MassaSaker/konsolerc $HOME/.config/konsolerc
+
+sudo touch $HOME/.xsession
+echo "exec i3" >> $HOME/.xsession
+
+
