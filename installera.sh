@@ -46,6 +46,7 @@ else
         echo "Skapar .local map"
         sudo mkdir $HOME/.local
 	sudo mkdir $HOME/.local/share
+	sudo mkdir $HOME/.local/share/konsole
 fi
 
 if [ -e $HOME/.config ]
@@ -102,6 +103,6 @@ yes | sudo cp -rf MassaSaker/.bashrc $HOME/.bashrc
 yes | sudo cp -rf MassaSaker/konsolerc $HOME/.config/konsolerc
 
 sudo touch $HOME/.xsession
-echo "exec i3" >> $HOME/.xsession
+sudo echo "exec i3" >> $HOME/.xsession
 
 
