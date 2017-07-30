@@ -2,6 +2,7 @@
 echo "Realux installerare"
 echo "Realux: Av, Simon Larsson"
 echo " "
+echo "x" > log.txt
 
 echo "DENNA INSTALLERARE KRÄVER FUNGERANDE NÄTVERKSUPPKOPLING. AVBRYT OM DU INTE HAR!"
 echo "Detta program är menat att användas på en hellt tomm Ubuntu Minimal eller liknande installation"
@@ -9,33 +10,36 @@ echo "Detta program är menat att användas på en hellt tomm Ubuntu Minimal ell
 # Dependencies
 echo "- Installerar lite program som behövs"
 echo "Uppdaterar repos"
-sudo apt -y update >> /dev/null
+sudo apt -y update >> log.txt
 echo "x11/Xorg"
-sudo apt -y  install xinit >> /dev/null
+sudo apt -y  install xinit >> log.txt
 echo "Klar!"
 echo "Compton"
-sudo apt -y install compton >> /dev/null
+sudo apt -y install compton >> log.txt
 echo "Klar!"
 echo "Nitrogen"
-sudo apt -y install nitrogen >> /dev/null
+sudo apt -y install nitrogen >> log.txt
 echo "Klar!"
 echo "Konsole"
-sudo apt -y install konsole >> /dev/null
+sudo apt -y install konsole >> log.txt
 echo "Xpad (Notes)"
-sudo apt -y install xpad >> /dev/null
+sudo apt -y install xpad >> log.txt
 echo "Klar!"
 
 
 
 #i3
 echo "i3 stock dependencies, Detta kan ta några minuter"
-sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake >> /dev/null
+sudo apt -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake >> log.txt
 echo "Klar med dependencies. Installerar nu i3 "
 git clone https://www.github.com/Airblader/i3 $HOME/i3-gaps-source
 mv ci3auto.sh $HOME/i3-gaps-source
 /bin/bash $HOME/i3-gaps-source/ci3auto.sh
 
+sudo mkdir $HOME/.i3
 sudo cp i3/config $HOME/.i3/config
+
+cd "$(dirname "$0")"
 
 # Creating required folders
 
